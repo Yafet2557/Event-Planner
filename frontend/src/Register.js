@@ -7,14 +7,19 @@ const Register = () => {
     <div className="register">
       <h2>Register</h2>
       <form>
-        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="First Name" required/>
         <br/>
-        <input type="text" placeholder="Last Name" />
+        <input type="text" placeholder="Last Name" required/>
         <br/>
-        <input type="text" placeholder="Email@" />
+        <input type="text" placeholder="#Phone number" required/>
         <br/>
-        <input type="text" placeholder="#Phone number" />
+        <input type="text" placeholder="Date Of Birth" required/>
         <br/>
+        <input type="email" placeholder="Email@" required/>
+        <br/>
+        <input type="password" placeholder="Password" required/>
+        <br/>
+        <input type="password" placeholder="Confirm Password" required/>
       </form>
 
       <button type="submit">Register</button>

@@ -23,6 +23,10 @@ code {
     monospace;
 }
 
+h2{
+  margin: 25px auto;
+}
+
 
 /*---------- COMPONENTS ---------*/
 
@@ -62,6 +66,8 @@ code {
   color: #61dafb;
   flex-direction: column;
   margin-top: 20%;
+  display: block;
+  margin: auto;
 }
 
 
