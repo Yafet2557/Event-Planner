@@ -1,17 +1,24 @@
 import './index';
-import React from 'react';
+import React, { useState } from 'react';
 import HelloWorld from './HelloWorld';
 import Navbar from './navbar';
 import Login from './login';
 import Register from './Register';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('login');
+
+  const toggleForm = (formName) => {
+    setCurrentPage(formName);
+
+  }
+
+
   return (
     <div>
-      <Navbar/>
-      <Login/>
-      <Register/>
-      <HelloWorld/>
+      {
+        currentPage === 'login' ? <Login onFormSwitch = {toggleForm}/> : <Register onFormSwitch = {toggleForm}/>
+      }
     </div>
   );
 }
