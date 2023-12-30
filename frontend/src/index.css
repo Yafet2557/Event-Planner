@@ -88,3 +88,13 @@ input{
   margin-top: 20px;
   margin-left: 20px;
 }
+
+.register{
+  margin-top: 100px;
+  margin-left: 25;
+}
+
+.register button {
+  display: block;
+  margin: 20px auto;
+}
