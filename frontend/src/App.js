@@ -15,7 +15,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='content'>
       {
         currentPage === 'login' ? <Login onFormSwitch = {toggleForm}/> : <Register onFormSwitch = {toggleForm}/>
       }
