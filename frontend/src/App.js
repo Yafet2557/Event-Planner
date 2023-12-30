@@ -1,15 +1,17 @@
+import './index';
 import React from 'react';
 import HelloWorld from './HelloWorld';
 import Navbar from './navbar';
-import './index';
 import Login from './login';
+import Register from './Register';
 
 function App() {
   return (
     <div>
       <Navbar/>
-      <Login />
-      <HelloWorld />
+      <Login/>
+      <Register/>
+      <HelloWorld/>
     </div>
   );
 }
