@@ -23,8 +23,15 @@ code {
     monospace;
 }
 
-h2{
+h2 {
   margin: 25px auto;
+  font-size: 24px;
+  color: #778ea5;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
 }
 
 
@@ -58,9 +65,11 @@ h2{
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 20px;
+  background-color: #697b98;
+  border-radius: 10px;
 }
 
 .login {
@@ -94,16 +103,38 @@ button:hover {
 }
 
 input {
-  margin-top: 20px;
-  margin-left: 20px;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #162732;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}input:hover {
+  border-color: #2980b9;
+  color: #fbfcfc;
+  background-color: #616e71;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}input:valid {
+  border-color: #39ae6a; 
+}input:required:invalid {
+  border-color: #5365b0; 
 }
 
 .register {
   margin-top: 100px;
-  margin-left: 25px;
+  width: 100%;
 }
 
 .register button {
   display: block;
   margin: 20px auto;
+}
+
+.register label{
+  min-width: 200px;
+  display: inline-block;
+  text-align: justify;
 }
