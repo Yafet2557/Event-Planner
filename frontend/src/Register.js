@@ -37,7 +37,7 @@ const Register = (props) => {
       <button type="submit">Register</button>
       <label > Already have an account?</label>
       <button onClick={() => props.onFormSwitch('login')} type="button"> Login</button>
-
+      <br/>
     </div>
   );
 };
