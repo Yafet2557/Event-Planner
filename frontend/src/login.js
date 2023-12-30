@@ -16,17 +16,17 @@ const Login = (props) => {
           <h2>Login</h2>
           <form onSubmit={handleButton}>
             <label htmlFor="email"> Email</label>
-            <input value={email} type="email" placeholder="youremail@example.com" id="email" name="email"/>
+            <input  type="email" placeholder="youremail@example.com" id="email" name="email"/>
             <br/>
 
             <label htmlFor="password"> Password</label>
-            <input value={password} type="password" placeholder="**********" id="password" name="password"/>
+            <input type="password" placeholder="**********" id="password" name="password"/>
 
             <button >Login</button>
 
             <label > Don't have an account?</label>
             <button onClick={() => props.onFormSwitch('Register')} type="button"> Register</button>
-
+            <br/>
           </form>
       </div>
     );
