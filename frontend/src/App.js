@@ -4,6 +4,7 @@ import HelloWorld from './HelloWorld';
 import Navbar from './navbar';
 import Login from './login';
 import Register from './Register';
+import Home from "./Home"
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
@@ -15,11 +16,13 @@ function App() {
 
 
   return (
-    <div className='content'>
+    /*<div className='content'>
       {
         currentPage === 'login' ? <Login onFormSwitch = {toggleForm}/> : <Register onFormSwitch = {toggleForm}/>
       }
     </div>
+    */
+   <Home/>
   );
 }
 
