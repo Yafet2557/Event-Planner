@@ -7,7 +7,7 @@ from django.utils import timezone
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
-    
+    phone_number = models.CharField(max_length=15, blank=True, null=True)  # You can adjust the max_length based on your requirements
     # Add related_name to avoid clashes with default User model
     groups = models.ManyToManyField(
         'auth.Group',
