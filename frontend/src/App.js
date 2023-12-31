@@ -4,8 +4,6 @@ import HelloWorld from './HelloWorld';
 import Navbar from './navbar';
 import Login from './login';
 import Register from './Register';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
