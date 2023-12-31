@@ -141,3 +141,8 @@ input {
   text-align: justify;
   margin-left: 15px;
 }
+
+span{
+  font-size: 20px;
+  color: green;
+}
