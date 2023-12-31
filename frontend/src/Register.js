@@ -28,12 +28,15 @@ const Register = (props) => {
 
   {/* API CALL  */}
   const CallServer = (inputs) => {
-    axios.post ('http://127.0.0.1:8000/api/register_user/', inputs)
-    .then(response => {
-      console.log('SUCESFULLY CALLED API' + response.data);
+    axios
+    .post('http://127.0.0.1:8000/api/register/', inputs)
+    .then((response) => {
+      console.log('Registration successful:', response.data);
+      alert('Registered!!!');
     })
-    .catch(error => {
-      console.log(error);
+    .catch((error) => {
+      console.error('Registration failed:', error);
+      alert('Failed');
     });
   }  
 
