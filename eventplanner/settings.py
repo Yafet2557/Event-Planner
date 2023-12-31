@@ -86,9 +86,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'event-planner',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'USER': 'event-planner',
+        'PASSWORD': '1event-planner2024@',
+        'HOST': '34.27.95.221',
         'PORT': '3306',
     }
 }
