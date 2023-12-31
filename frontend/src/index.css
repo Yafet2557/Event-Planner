@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  border-radius: 5px;
 }
 
 body {
@@ -92,6 +93,7 @@ button {
   margin-left: 130px;
   border: none;
   padding: 10px; 
+  border-radius: 9px;
 }
 
 button:hover {
@@ -137,4 +139,5 @@ input {
   min-width: 200px;
   display: inline-block;
   text-align: justify;
+  margin-left: 15px;
 }
