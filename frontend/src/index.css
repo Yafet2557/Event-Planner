@@ -1,6 +1,5 @@
 *{
   margin: 0;
-  background-color: #282c34;
   color: white;
   text-align: center;
   align-items: center;
@@ -145,4 +144,60 @@ input {
 span{
   font-size: 20px;
   color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HOME*/
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #39ae6a;
+}nav ul li
+{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}nav ul li a
+{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}nav ul li a::after{
+  content: '';
+  width: 0%;
+  height: 3px;
+  background: aqua;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.6s;
+}
+nav ul li a:hover{
+  transform: scale(1.2);
+}
+
+nav ul li a:hover::after
+{
+  width: 100%;
+}
+
+
+
+.HomePage{
+  background-color: #39ae6a;
 }
