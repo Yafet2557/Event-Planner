@@ -22,7 +22,7 @@ function App() {
       }
     </div>
     */
-   <Home/>
+   <App/>
   );
 }
 
