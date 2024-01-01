@@ -36,26 +36,28 @@ const Login = (props) => {
 
   return (
 
-    <div className="register">
-      <h2>Login</h2>
-      <form onSubmit={handleButton}>
+    <div className="HomePage"> 
+      <div className="register">
+        <h2>Login</h2>
+        <form onSubmit={handleButton}>
 
-        <FontAwesomeIcon icon={faEnvelope} bounce size="sm" style={{ color: "#2d59a4", }} />
-        <label htmlFor="email"> Email</label>
-        <input type="email" placeholder="youremail@example.com" id="email" name="email" required value={loginInfo.email} onChange={inputChange} />
-        <br />
+          <FontAwesomeIcon icon={faEnvelope} bounce size="sm" style={{ color: "#2d59a4", }} />
+          <label htmlFor="email"> Email</label>
+          <input type="email" placeholder="youremail@example.com" id="email" name="email" required value={loginInfo.email} onChange={inputChange} />
+          <br />
 
 
-        <FontAwesomeIcon icon={faLock} bounce size="sm" style={{ color: "#2d59a4", }} />
-        <label htmlFor="password"> Password</label>
-        <input type="password" placeholder="**********" id="password" name="password" required value={loginInfo.password} onChange={inputChange} />
+          <FontAwesomeIcon icon={faLock} bounce size="sm" style={{ color: "#2d59a4", }} />
+          <label htmlFor="password"> Password</label>
+          <input type="password" placeholder="**********" id="password" name="password" required value={loginInfo.password} onChange={inputChange} />
 
-        <button type="submit" >Login</button>
-        <i class="fa-solid fa-lock"></i>
-        <label > Don't have an account?</label>
-        <button onClick={() => props.onFormSwitch('Register')} type="button"> Register</button>
-        <br />
-      </form>
+          <button type="submit" >Login</button>
+          <i class="fa-solid fa-lock"></i>
+          <label > Don't have an account?</label>
+          <button onClick={() => props.onFormSwitch('Register')} type="button"> Register</button>
+          <br />
+        </form>
+      </div>
     </div>
   );
 };
