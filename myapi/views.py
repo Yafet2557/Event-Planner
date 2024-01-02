@@ -1,11 +1,14 @@
 # views.py
 
 import random
-from django.contrib.auth import authenticate, login as auth_login  # Import Django's login as auth_login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password
 from django.http import JsonResponse
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
-from .models import CustomUser
+from .models import CustomUser, Event
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.decorators import login_required
 
 
 @api_view(['POST'])
@@ -38,12 +41,31 @@ def user_login(request):
         email = data.get('email')
         password = data.get('password')
 
-        user = authenticate(request, email=email, password=password)
+        # Authenticate user
+        user = authenticate(username=email, password=password)
 
         if user is not None:
-            auth_login(request, user)  # Use auth_login instead of login
+            # User authenticated successfully
+            login(request, user)
             return JsonResponse({'message': 'Login successful'}, status=status.HTTP_200_OK)
         else:
+            # User authentication failed
             return JsonResponse({'message': 'Invalid login credentials'}, status=status.HTTP_401_UNAUTHORIZED)
     else:
+        # Method not allowed
         return JsonResponse({'message': 'Method not allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['POST', 'GET'])
+@login_required
+def create_event(request):
+    data = request.data
+    print(data)
+    data['creator'] = request.user
+    try:
+        event = Event.objects.create(**data)
+        print(event)
+        return JsonResponse({'message': 'Event created successfully'}, status=status.HTTP_201_CREATED)
+    except Exception as e:
+        return JsonResponse({'message': f'Error creating event: {str(e)}'},
+                            status=status.HTTP_500_INTERNAL_SERVER_ERROR)
