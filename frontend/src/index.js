@@ -5,6 +5,7 @@ import App from './App';
 import Home from './Home';
 import Login from './login';
 import Register from './Register';
+import FAQ from './FAQ';
 
 
 import {
@@ -29,6 +30,9 @@ const router = createBrowserRouter([
   {
     path: "/Register",
     element: <Register/>,
+  },
+  {
+    path:"/FAQ", element: <FAQ/>
   },
 ]);
 
