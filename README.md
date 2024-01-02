@@ -31,3 +31,7 @@ Event Planner is a web application designed to simplify event management and coo
 
 - **Version Control:**
   - Git
+
+## Project Status
+
+🚧 **In Progress:** This project is currently in development. We're actively working on adding features and improvements.
