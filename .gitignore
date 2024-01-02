@@ -1,4 +1,19 @@
-./myapi/__pycache__
-./myapi/migrations
-/myapi/migrations
-/myapi/__pycache__
+# Python compiled files
+__pycache__/
+
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# Django migration files
+myapi/migrations
+frontend/node_modules
+frontend/package.json
+frontend/package-lock.json
+frontend/build
+frontend/public
+frontend/README.md
