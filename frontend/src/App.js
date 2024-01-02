@@ -1,11 +1,6 @@
 import './index';
 import React, { useState } from 'react';
-import HelloWorld from './HelloWorld';
-import Navbar from './navbar';
-import Login from './login';
-import Register from './Register';
-import Home from "./Home"
-
+import Navbar from "./Components/Navbar";
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
 
@@ -22,7 +17,10 @@ function App() {
       }
     </div>
     */
+      <>
    <App/>
+
+      </>
   );
 }
 

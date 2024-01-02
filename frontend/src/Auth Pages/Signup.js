@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Register = (props) => {
+const Signup = (props) => {
   const [isRegistered, setIsRegistered] = useState(false);
 
 
@@ -79,4 +79,4 @@ const Register = (props) => {
   );
 };
 
-export default Register;
+export default Signup;

@@ -57,7 +57,7 @@ const Login = (props) => {
           <i class="fa-solid fa-lock"></i>
           <label > Don't have an account?</label>
           { /* <button onClick={() => props.onFormSwitch('Register')} type="button"> Register</button> */}
-          <button> <Link to="/Register">Register</Link> </button>
+          <button> <Link to="/sign-up">Register</Link> </button>
           <br />
         </form>
       </div>

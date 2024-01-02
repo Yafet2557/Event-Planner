@@ -68,6 +68,9 @@ h2 {
   transition: background-color 250ms ease-in-out;
 }
 
+.nav a:active {
+  color:red;
+}
 .content {
   max-width: 1000px;
   margin: 40px auto;
@@ -149,7 +152,6 @@ span{
   font-size: 20px;
   color: green;
 }
-
 
 
 
