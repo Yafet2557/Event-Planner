@@ -7,6 +7,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .models import CustomUser
 
+
 @api_view(['POST'])
 def register_user(request):
     data = request.data
@@ -22,13 +23,15 @@ def register_user(request):
 
     try:
         user = CustomUser.objects.create_user(
-            username=username, first_name=firstname, last_name=lastname, email=email, password=password, phone_number=phone
+            username=username, first_name=firstname, last_name=lastname, email=email, password=password,
+            phone_number=phone
         )
         return JsonResponse({'message': 'User registered successfully'}, status=status.HTTP_201_CREATED)
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['POST','GET'])
+
+@api_view(['POST', 'GET'])
 def user_login(request):
     if request.method == 'POST':
         data = request.data
