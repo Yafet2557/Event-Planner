@@ -2,6 +2,8 @@ import React from 'react';
 import 'react-phone-input-2/lib/style.css';
 import  {useState} from "react";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -69,7 +71,8 @@ const Register = (props) => {
 
         {/* LOGIN BUTTON  */}
         <label > Already have an account?</label>
-        <button onClick={() => props.onFormSwitch('login')} type="button"> Login</button>
+        {/* <button onClick={() => props.onFormSwitch('login')} type="button"> Login</button> */}
+        <button> <Link to="/Login">Login</Link> </button>
         <br/>
       </div>
     </div>

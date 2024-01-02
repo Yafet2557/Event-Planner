@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const Login = (props) => {
 
@@ -54,7 +56,8 @@ const Login = (props) => {
           <button type="submit" >Login</button>
           <i class="fa-solid fa-lock"></i>
           <label > Don't have an account?</label>
-          <button onClick={() => props.onFormSwitch('Register')} type="button"> Register</button>
+          { /* <button onClick={() => props.onFormSwitch('Register')} type="button"> Register</button> */}
+          <button> <Link to="/Register">Register</Link> </button>
           <br />
         </form>
       </div>

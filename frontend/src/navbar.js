@@ -5,12 +5,16 @@
 
 const Navbar = () => {
     return ( 
-            <nav className="navbar">
-                <div className="links">
-                    <a href="/Home"> Home</a>
-                    <a href="/Create"> New Event</a>
-                </div>
-            </nav>
+        <div className="HomePage">
+            <nav>
+                <ul id="sideMenu">
+                    <li> <a href="#">Home</a></li>
+                    <li> <a href="FAQ">FAQ'S</a></li>
+                    <li> <a href="#">Contact</a></li>
+                    <li> <a href="Login">Logout</a></li>
+                </ul>
+              </nav>
+        </div>
      );
 }
  
