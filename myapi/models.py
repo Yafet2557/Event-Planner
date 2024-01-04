@@ -38,7 +38,7 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField(default=timezone.now)
     location = models.CharField(max_length=255)
-    creator = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='created_events', default="Default")
+    creator = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='created_events', default=None)
     visibility = models.CharField(
         choices=[('public', 'Public'), ('private', 'Private'), ('invite_only', 'Invite Only')], max_length=20,
         default="Private")
@@ -50,9 +50,9 @@ class Event(models.Model):
 class Guest(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    is_attending = models.BooleanField(default=False)
-    is_undecided = models.BooleanField(default=False)
-    is_declined = models.BooleanField(default=False)
+    attending = models.BooleanField(default=False)
+    undecided = models.BooleanField(default=False)
+    declined = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user.username} - {self.event.title}"
