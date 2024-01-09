@@ -1,10 +1,16 @@
 # urls.py
-from django.urls import path, include
-from .views import register_user, user_login, create_event
-from django.contrib.auth import views as auth_views
+
+from django.urls import path
+from .views import RegisterUserAPIView, UserLoginAPIView, CreateEventAPIView, UserLogoutAPIView, EventDetailsAPIView, \
+    DeleteEventAPIView, ListEventsAPIView, UpdateEventDetails
 
 urlpatterns = [
-    path('register/', register_user, name='register_user'),
-    path('login/', user_login, name='login'),
-    path('events/create/', create_event, name='event-create'),
+    path('register/', RegisterUserAPIView.as_view(), name='register_user'),
+    path('login/', UserLoginAPIView.as_view(), name='user_login'),
+    path('logout/', UserLogoutAPIView.as_view(), name='user_logout'),
+    path('events/create/', CreateEventAPIView.as_view(), name='create_event'),
+    path('events/read/<int:pk>/', EventDetailsAPIView.as_view(), name='event-details'),
+    path('events/update/<int:pk>/', UpdateEventDetails.as_view(), name='update_event'),
+    path('events/delete/<int:pk>/', DeleteEventAPIView.as_view(), name='delete_event'),
+    path('events/all/', ListEventsAPIView.as_view(), name='list_all'),
 ]
