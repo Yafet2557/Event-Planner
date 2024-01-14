@@ -2,12 +2,12 @@ from django.contrib.auth import login, logout
 from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.authtoken.models import Token
-from rest_framework.generics import RetrieveAPIView, CreateAPIView, DestroyAPIView,ListAPIView,UpdateAPIView
+from rest_framework.generics import RetrieveAPIView, CreateAPIView, DestroyAPIView, ListAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
-
+from django.views.decorators.csrf import csrf_exempt
 from .models import Event
-from .serializers import UserSeriliazer, EventSerializer, UserLoginSerializer
+from .serializers import UserSerializer, EventSerializer, UserLoginSerializer
 
 
 class RegisterUserAPIView(APIView):
@@ -24,37 +24,25 @@ class RegisterUserAPIView(APIView):
 
     def post(self, request):
         data = request.data
-        serializer = UserSeriliazer(data=data)
+        serializer = UserSerializer(data=data)
 
         if serializer.is_valid():
             user = serializer.save()
-            # login(request, user) not sure about this yet
-            token, created = Token.objects.get_or_create(user=user)
+            login(request, user)
+            Token.objects.create(user=user)
             return JsonResponse({'message': 'User registered successfully'}, status=status.HTTP_201_CREATED)
         else:
-            return JsonResponse({'error': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
-
-
+            return JsonResponse({'error': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)      
+        
+        
+        
 class UserLoginAPIView(APIView):
-    """
-    API endpoint for user login.
-
-    Accepts a POST request with user login credentials.
-    
-    Returns a JSON response indicating success or failure including the authentication token.
-
-    """
-
-    http_method_names = ['post']
-
-    @staticmethod
-    def post(request: object) -> object:
-
+    def post(self, request):
         serializer = UserLoginSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data['user']
             login(request, user)
-            token, created = Token.objects.get_or_create(user=user)
+            token = Token.objects.get(user=user)
             return JsonResponse({'message': 'Login successful', 'token': token.key}, status=status.HTTP_200_OK)
         else:
             return JsonResponse({'error': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
@@ -103,36 +91,39 @@ class EventDetailsAPIView(RetrieveAPIView):
         serializer = self.get_serializer(instance)
         return JsonResponse({'event': serializer.data}, status=status.HTTP_200_OK)
 
+
 class DeleteEventAPIView(DestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     permission_classes = [IsAuthenticated]
 
+
 class ListEventsAPIView(ListAPIView):
     http_method_names = ['get']
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [IsAuthenticated]    
+    permission_classes = [IsAuthenticated]
+
 
 class UpdateEventDetails(UpdateAPIView):
-    http_method_names = ['patch']     # Define allowed HTTP methods
+    http_method_names = ['patch']  # Define allowed HTTP methods
 
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes= [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_update(self, serializer):
         field = self.request.data.get('new_value')
         if field:
-            serializer.save(**{field:self.request.data.get(field)})
+            serializer.save(**{field: self.request.data.get(field)})
         else:
             serializer.save()
 
     def update(self, request, **kwargs):
-        partial = kwargs.pop('partial',False)
+        partial = kwargs.pop('partial', False)
         instance = self.get_object()
-        serializer = self.get_serializer(instance,data=request.data,partial=partial)
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
 
-        return JsonResponse({'Data':serializer.data})
+        return JsonResponse({'Data': serializer.data})
