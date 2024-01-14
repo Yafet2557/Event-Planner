@@ -1,27 +1,14 @@
-import './index';
-import React, { useState } from 'react';
-import Navbar from "./Components/Navbar";
-function App() {
-  const [currentPage, setCurrentPage] = useState('login');
+// App.js
 
-  const toggleForm = (formName) => {
-    setCurrentPage(formName);
+import React from 'react';
+import EventCard from './EventCard';
 
-  }
-
-
+const App = () => {
   return (
-    /*<div className='content'>
-      {
-        currentPage === 'login' ? <Login onFormSwitch = {toggleForm}/> : <Register onFormSwitch = {toggleForm}/>
-      }
+    <div className="app">
+    
     </div>
-    */
-      <>
-   <App/>
-
-      </>
   );
-}
+};
 
 export default App;

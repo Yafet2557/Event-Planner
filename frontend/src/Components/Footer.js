@@ -1,5 +1,5 @@
 import React from "react";
-import "../Event-Management/LandingPage.css";
+import "../css/LandingPage.css";
 const Footer = () => {
     return(
         <footer className="footer-custom">

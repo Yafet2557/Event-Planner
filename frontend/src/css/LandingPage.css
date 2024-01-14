@@ -65,3 +65,15 @@ p {
     padding: 20px;
     width: 100%;
 }
+/* LandingPage.css */
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+}
+/* LandingPage.css */
+.features-section li {
+    transition: transform 0.3s ease-in-out;
+}
+
+.features-section li:hover {
+    transform: scale(1.1);
+}

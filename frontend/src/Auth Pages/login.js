@@ -4,7 +4,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import "../index.css"
 
 const Login = (props) => {
 
@@ -23,18 +23,20 @@ const Login = (props) => {
     LoginApi(loginInfo);
   }
 
-    const LoginApi = (loginData) => {
-      axios
-      .post('http://127.0.0.1:8000/api/login/', loginData)
+  const LoginApi = (loginData) => {
+    axios.post('http://127.0.0.1:8000/api/login/', loginData)
       .then((response) => {
-        console.log('Login successful:', response.data);
-        alert('Logged in!!!');
+        // Assuming the token is returned in the response data as 'token'
+        const token = response.data.token;
+  
+        // Store the token in localStorage
+        localStorage.setItem('token', token);  
       })
       .catch((error) => {
         console.error('Login failed:', error);
         alert('Login failed');
       });
-    }  
+  };
 
   return (
 

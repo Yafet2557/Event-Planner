@@ -7,19 +7,16 @@ const Navbar = () => {
         <nav>
             <ul>
                 <li>
-                    <NavLink to="/" activeClassName="active">Home</NavLink>
+                    <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/create-event" activeClassName="active">Create Event</NavLink>
+                    <NavLink to="/events/my-events" >My Events</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/my-events" activeClassName="active">My Events</NavLink>
+                    <NavLink to="/events/create">Create Event</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/event-details">Event Details</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/edit-event">Edit Event</NavLink>
+                    <NavLink to="/events/:eventId/edit">Edit Event</NavLink>
                 </li>
                 <li>
                     <NavLink to="/FAQ">FAQ</NavLink>
